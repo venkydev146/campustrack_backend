@@ -5,13 +5,13 @@ import morgan from 'morgan';
 import dotenv from 'dotenv';
 
 import routes from './backend/src/routes/auth.routes.js';
-import timetableRoutes from './routes/timetable.routes.js';
-import attendanceRoutes from './routes/attendance.routes.js';
-import marksRoutes from './routes/marks.routes.js';
-import notificationsRoutes from './routes/notifications.routes.js';
-import studentsRoutes from './routes/students.routes.js';
-import resourcesRoutes from './routes/resources.routes.js';
-import staffRoutes from './routes/staff.routes.js';
+import timetableRoutes from '.backend/src/routes/timetable.routes.js';
+import attendanceRoutes from '.backend/src/routes/attendance.routes.js';
+import marksRoutes from '.backend/src/routes/marks.routes.js';
+import notificationsRoutes from '.backend/src/routes/notifications.routes.js';
+import studentsRoutes from '.backend/src/routes/students.routes.js';
+import resourcesRoutes from '.backend/src/routes/resources.routes.js';
+import staffRoutes from '.backend/src/routes/staff.routes.js';
 
 // under other routes
 
