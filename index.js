@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 
-import routes from './backend/src/routes/auth.routes.js';
+import authRoutes from './backend/src/routes/auth.routes.js';
 import timetableRoutes from './backend/src/routes/timetable.routes.js';
 import attendanceRoutes from './backend/src/routes/attendance.routes.js';
 import marksRoutes from './backend/src/routes/marks.routes.js';
