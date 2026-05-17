@@ -1,17 +1,30 @@
+
+
 import supabase from '../config/supabase.js';
 
 // Enter marks for entire section
 export const enterMarks = async (req, res) => {
   try {
-    const { assignment_id, exam_type, max_marks, records } = req.body;
+    let { assignment_id, exam_type, max_marks, records } = req.body;
+
+    // Map old exam types to new ones
+    const examTypeMap = {
+      'CIA1':  'CAT-1',
+      'CIA2':  'CAT-2',
+      'MODEL': 'CAT-3',
+      'FINAL': 'THEORY'
+    };
+    exam_type = examTypeMap[exam_type] || exam_type;
+
+    console.log('Mapped exam_type:', exam_type);
 
     const marksData = records.map(r => ({
       staff_subject_assignment_id: assignment_id,
-      student_id: r.student_id,
+      student_id:       r.student_id,
       academic_year_id: r.academic_year_id,
       exam_type,
       max_marks,
-      scored_marks: r.scored_marks
+      scored_marks:     r.scored_marks
     }));
 
     const { error } = await supabase
@@ -25,7 +38,7 @@ export const enterMarks = async (req, res) => {
     return res.status(201).json({ message: 'Marks entered successfully' });
 
   } catch (err) {
-      console.error('Enter marks error:', err);
+    console.error('Enter marks error:', err);
     return res.status(500).json({ error: 'Failed to enter marks' });
   }
 };
